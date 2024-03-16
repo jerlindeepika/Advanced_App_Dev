@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -15,8 +16,15 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Add your sign-in logic here
-        console.log('Email:', email);
+        console.log('UserName:', email);
         console.log('Password:', password);
+
+        // Redirect to home page upon successful sign-in
+        // Replace '/home' with the appropriate path to your home page
+        // This assumes you have set up your routes properly using React Router
+        // Also ensure you have proper routing setup in your application
+        // For example, you can use useHistory() hook instead if you are using functional components with hooks.
+        window.location.href = "/Home"; 
     };
 
     return (
@@ -25,7 +33,7 @@ const SignIn = () => {
                 <h2 className="text-2xl font-semibold text-center mb-4">Sign In</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
+                        <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">UserName</label>
                         <input type="email" id="email" name="email" value={email} onChange={handleEmailChange} className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" />
                     </div>
                     <div className="mb-6">
@@ -33,10 +41,9 @@ const SignIn = () => {
                         <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange} className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" />
                     </div>
                     <div className="flex items-center justify-between">
+                        {/* Use Link component to navigate to home page */}
                         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Sign In</button>
-                        <a href="sign up.html" className="text-blue-500 font-semibold hover:underline">Forgot Password?</a>
-                        <a href="/register" className="text-blue-500 font-semibold hover:underline">register</a>
-
+                        <Link to="/register" className="text-blue-500 font-semibold hover:underline">Register</Link>
                     </div>
                 </form>
             </div>
