@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UiReactApplication<ui_react>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.codecrew.ui_react.UiReactApplication",
+            "projectName": "ui_react",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
